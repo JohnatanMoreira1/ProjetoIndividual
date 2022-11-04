@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     font-family: sans-serif;
     background-image: url("https://media.tenor.com/ZY51pVUpfJ8AAAAd/valorant.gif");
     background-repeat: no-repeat;
@@ -85,7 +85,7 @@ justify-content: center;
 
     .banner .containerbanner{
     color: white;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -100,22 +100,28 @@ justify-content: center;
 
 
 /*------------------------------------------------------------------------------------------------------INICIO DO CARROSSEL --------------------------------------------------------------------------------------------------------------------------*/
+.pai_carrossel{
+    height: 500px;
+    width: 90%;
+    /* border: 2px solid yellow; */
+    display: flex;
+    justify-content: center;
+    margin:0 auto;
+}
+
 .carrossel{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     height: 500px;
     width: 900px;
     border-radius: 20px;
-    overflow: hidden;
-    position: relative; /*define onde eu quero colocar o meu elemento na tela */
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -5%);/* move o conteudo no seu próprio eixo */
- /*eixo x deitado, eixo y em pé */
+    overflow: hidden; /*define onde eu quero colocar o meu elemento na tela */
+                        /* move o conteudo no seu próprio eixo */
+                        /*eixo x deitado, eixo y em pé */
 }
 
 .navegadorcarrossel {
     position: absolute; /* se eu colocar duas vezes eu só vou conseguir mover o meu filho dentro da div carrossel */
-    bottom: 20px;
+    bottom: -420px;
     left: 50%;
     transform: translate(-50%); /* corrigir o bug de ficar o left muito pra direita invertendo */ 
     display: flex;
@@ -194,18 +200,77 @@ margin-left: 0;
 }#slide20:checked ~ .s1{
     margin-left: -3.8%;
 }
-
-
+/* --------------------------------------------------------------------------------------------------FIM DO CARROSSEL ------------------------------------------------------------------------------------------------------------------- */
 
 
 .AgentesValorant{
 display: flex;
 align-items: center;
 justify-content: center;
-width: 1000px;
+width: 90%;
 padding-top: 100px;
-padding-left: 20px;
+padding-left: 10px;
+/* border: 2px solid yellow; */
+margin: 0 auto;
 }
-/* --------------------------------------------------------------------------------------------------FIM DO CARROSSEL ------------------------------------------------------------------------------------------------------------------- */
+
+
+.lojadiaria {
+    margin-top: 100px;
+    background-color: black;
+    height: 700px;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    /* border: 2px solid yellow; */
+    flex-direction: column;
+}
+
+.abraço{
+display:flex;
+justify-content: center;
+align-items: center;
+/* border: 2px solid pink; */
+}
+
+.item{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    margin-left: 20px;
+    border-radius: 20px;
+    background-image: url("Assets/Interroga.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lojadiaria #sorteio{
+/* border: 2px solid red; */
+text-align: center;
+}
+
+.textosorteio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid yellow; */
+    padding:60px 0;
+}
+
+.lojadiaria button{
+
+width: 500px;
+height: 100px;
+background: rgb(66,17,17);
+background: linear-gradient(90deg, rgba(66,17,17,1) 27%, rgba(255,0,0,1) 100%);
+border-radius: 30px;
+color: white;
+font-family: "Valorant";
+align-self: center;
+margin-top: 50px;
+}
+
+
+
 
 
