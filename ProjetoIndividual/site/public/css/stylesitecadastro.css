@@ -2,6 +2,12 @@
   font-family: 'Valorant';
   src: url('Valorant.ttf') format('truetype');
 }
+.banners{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .banner{
     display: flex;
     align-items: center;
