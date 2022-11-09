@@ -39,14 +39,12 @@ equipe1 == true;
 var equipe2 = time_2.value;
 var rodadas = num_rodadas.value;
 
-if(){}
 
 
 
 
 
 for(var index = 0; index < rodadas; index++){
-    if()
 
 
 
