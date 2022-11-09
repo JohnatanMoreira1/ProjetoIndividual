@@ -10,6 +10,7 @@
     <script src="js/funcoes.js"></script>
     <link rel="stylesheet" href="css/stylesiteinst.css">
     <link rel="stylesheet" href="css/styledashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="icon" href="https://shreepng.com/img/Inside/Games/Valorant/icon%20valorant.png">
 
@@ -35,11 +36,41 @@
             <h1 style="color: white" class="txtshow"> Mapas preferidos da comunidade </h1>
 
             <div>
-                <canvas id="dashmapas" style="position: relative; height:40vh; width:80vw"></canvas>
-                    </div>
+                <canvas id="myChart" style="position: relative; height:60%; width:60% ; display: block;">
+                </canvas>
+            </div>
         </div>
     </div>
 
+
+    <div class="bannersdash1">
+        <div class="containerbannerdash">
+
+            <div class="partidinha" id="partida">
+                <h2 class="txtshow">Confronto entre Equipes</h2> <br>
+                <span class="txtshow"> Insira a equipe 1</span>
+                <input id="time_1">
+                <span class="txtshow"> Insira a equipe 2</span>
+                <input type="time_2">
+                <span class="txtshow">quantidade de rodadas</span>
+                <input id="num_rodadas">
+
+
+                <div class="resultado" id="mostrar">
+                    abilulbilu
+                </div>
+
+                <button onclick="jogar()">COMEÇAR</button>
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 
     <div class="bannersdash1">
@@ -49,17 +80,17 @@
                 <h1 class="txtshow">Seu mapa favorito: <b id="b_fkmapa"></b></h1>
                 <img src="" alt="">
             </div>
-            
-            <div id="mostrar2">
-                <h1 class="txtshow">Somos um total de <b id="b_idcadastro"></b> players cadastrados </h1>
+
+            <div id="mostrar">
+                <h1 class="txtshow">Somos um total de <b id="b_idcadastro"></b><br> players cadastrados </h1>
             </div>
-            
+
         </div>
 
     </div>
 
 
-    <div class = "footer">
+    <div class="footer">
         <div class="dentrofooter">
             <h4 class="txtshow">Valorant by Johnatan</h4>
         </div>
@@ -69,37 +100,43 @@
 </body>
 
 </html>
+<script>
 
-const labels = [ //vetor com os nomes de meses ( const é uma forma de declarar variaveis)
-"Ascent", //o const é uma variavel constante q nunca será mudada
-"Bind",
-"Breeze",
-"Fracture",
-"Haven",
-"Icebox",
-"Split",
-"Pearl"
-];
+    const labels = [ //vetor com os nomes de meses ( const é uma forma de declarar variaveis)
+        "Ascent", //o const é uma variavel constante q nunca será mudada
+        "Bind",
+        "Breeze",
+        "Fracture",
+        "Haven",
+        "Icebox",
+        "Split",
+        "Pearl"
+    ];
 
-const data = { //ela é um JSON
-    labels: labels, //utilizando a varivel label para definir os nomes embaixo 
-    datasets: [{ //métricas
-      label: 'Mapas', // nome do grafico lá em cima
-      backgroundColor: 'rgb(255, 99, 132)', //cor da borda
-      borderColor: 'rgb(255, 99, 132)', // cor da borda
-      data: [0, 10, 5, 2, 20, 30, 45], // valores que a linha vai ser atribuida)
-    }]
-  };
+    const data = { //ela é um JSON
+        labels: labels, //utilizando a varivel label para definir os nomes embaixo 
+        datasets: [{ //métricas
+            label: 'Mapas', // nome do grafico lá em cima
+            backgroundColor: 'rgb(178, 34, 34)',//cor da borda
+            borderColor: 'rgb(255, 99, 132)', // cor da borda
+            data: [0, 10, 5, 2, 20, 30, 45, 50], // valores que a linha vai ser atribuida)
+        }]
+    };
 
-  const config = { //configurações do seu chart
-    type: 'bar', //tipagem do gráfico barra,linha etc
-    data: data,
-    options: {}
-  };
+    const config = { //configurações do seu chart
+        type: 'bar', //tipagem do gráfico barra,linha etc
+        data: data,
+        options: {}
+    };
 
 
 </script>
 <script>
-const MyChart = new Chart (document.getElementByID("MyChart"),config);
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
 
+    var fkmapas = sessionStorage.FKMAPA;
+    var cadastrados = sessionStorage.IDCADASTRO;
 </script>

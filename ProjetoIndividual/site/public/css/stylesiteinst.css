@@ -13,8 +13,8 @@ body {
     background-image: url("https://media.tenor.com/ZY51pVUpfJ8AAAAd/valorant.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed ;        
-    
+    background-attachment: fixed ; 
+           
 }
 
 .header{
@@ -259,15 +259,29 @@ text-align: center;
 
 .lojadiaria button{
 
-width: 500px;
-height: 100px;
-background: rgb(66,17,17);
-background: linear-gradient(90deg, rgba(66,17,17,1) 27%, rgba(255,0,0,1) 100%);
+width: 180px;
+height: 50px;
+background-color: red;
 border-radius: 30px;
 color: white;
 font-family: "Valorant";
 align-self: center;
 margin-top: 50px;
+box-shadow: 3px 3px 3px black;
+transition: 0.2s;
+}
+
+ .lojadiaria button:hover {
+    background-color: white;
+    box-shadow: 3px 3px 3px black;
+    color: red;
+    }
+.containerbanner p{
+    text-shadow: 3px 3px 3px black;
+}
+
+.containerbanner h1{
+    text-shadow: 3px 3px 3px black;
 }
 
 

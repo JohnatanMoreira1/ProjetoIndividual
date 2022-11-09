@@ -101,12 +101,19 @@ color: white;
 background-color: red;
 border-radius: 4px;
 border: none;
-padding: 10px 15px;;
+padding: 10px 15px;
 width: 150px;
 align-self: center;
 font-size: 20px;
 font-family: "Valorant";
+box-shadow: 3px 3px 3px black;
+transition: 0.2s;
 }
+.formulario button:hover {
+    background-color: white;
+    box-shadow: 3px 3px 3px black;
+    color: red;
+    }
 
 a{
     text-decoration: none;
