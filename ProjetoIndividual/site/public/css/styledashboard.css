@@ -71,7 +71,7 @@ height: 100%
     } 
 
 
-    .partidinha{
+    .partidinha {
 
         justify-content: center; 
         align-items: center;
@@ -82,10 +82,49 @@ height: 100%
 
     .resultado{
     font-family: "Valorant";
-    display: none;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    border: 2px solid red;
+    width: 800px;
+    height: 800px;
 
     }
+    .partidinha button{
+
+        width: 180px;
+        height: 50px;
+        background-color: red;
+        border-radius: 30px;
+        color: white;
+        font-family: "Valorant";
+        align-self: center;
+        margin-bottom: 20px;
+        box-shadow: 3px 3px 3px black;
+        transition: 0.2s;
+        }
+        
+         .partidinha button:hover {
+            background-color: white;
+            box-shadow: 3px 3px 3px black;
+            color: red;
+            }
+
+
+
+            .partidinha input{
+                padding: 10px 15px;
+                text-align: center;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-left: 2px solid red;
+                border-top: 2px solid red;
+                color: white;
+                
+                }
 
 
 

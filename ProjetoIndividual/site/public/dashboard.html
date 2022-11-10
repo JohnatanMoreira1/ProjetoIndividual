@@ -18,7 +18,7 @@
 
 
 
-<body class="body">
+<body class="body" onload="atualizarFeed()">
     <div class="header">
         <div class="container">
             <h1 class="txtshow">Valorant</h1>
@@ -44,27 +44,27 @@
 
 
     <div class="bannersdash1">
-        <div class="containerbannerdash">
+        <div class="containerbannerdash" id="containerjogo">
 
             <div class="partidinha" id="partida">
                 <h2 class="txtshow">Confronto entre Equipes</h2> <br>
                 <span class="txtshow"> Insira a equipe 1</span>
                 <input id="time_1">
                 <span class="txtshow"> Insira a equipe 2</span>
-                <input type="time_2">
+                <input id="time_2">
                 <span class="txtshow">quantidade de rodadas</span>
                 <input id="num_rodadas">
 
-
-                <div class="resultado" id="mostrar">
-                    abilulbilu
-                </div>
-
-                <button onclick="jogar()">COMEÇAR</button>
+                <button onclick="verifygame()">COMEÇAR</button>
 
 
 
 
+            </div>
+
+
+            <div class="resultado" id="mostrar" style="display:none">
+                    
             </div>
 
 
@@ -100,8 +100,11 @@
 </body>
 
 </html>
-<script>
+<script> // script dashboard json
 
+function criargrafico(ascent,bind,breeze,fracture,haven,icebox,pearl,split){
+console.log(ascent,bind,breeze,fracture,haven,icebox,pearl,split)
+    
     const labels = [ //vetor com os nomes de meses ( const é uma forma de declarar variaveis)
         "Ascent", //o const é uma variavel constante q nunca será mudada
         "Bind",
@@ -109,8 +112,8 @@
         "Fracture",
         "Haven",
         "Icebox",
-        "Split",
-        "Pearl"
+        "Pearl",
+        "Split"
     ];
 
     const data = { //ela é um JSON
@@ -119,24 +122,152 @@
             label: 'Mapas', // nome do grafico lá em cima
             backgroundColor: 'rgb(178, 34, 34)',//cor da borda
             borderColor: 'rgb(255, 99, 132)', // cor da borda
-            data: [0, 10, 5, 2, 20, 30, 45, 50], // valores que a linha vai ser atribuida)
+            data:[], // valores que a linha vai ser atribuida)
         }]
     };
-
+    
     const config = { //configurações do seu chart
         type: 'bar', //tipagem do gráfico barra,linha etc
         data: data,
         options: {}
     };
-
-
-</script>
-<script>
+    
+    data.datasets[0].data.push(ascent); //envia pro vetor na ultima posicao
+    data.datasets[0].data.push(bind);
+    data.datasets[0].data.push(breeze);
+    data.datasets[0].data.push(fracture);
+    data.datasets[0].data.push(haven);
+    data.datasets[0].data.push(icebox);
+    data.datasets[0].data.push(pearl);
+    data.datasets[0].data.push(split);
+    
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
-    );
+        );
+    
+}
+    
 
-    var fkmapas = sessionStorage.FKMAPA;
-    var cadastrados = sessionStorage.IDCADASTRO;
+</script>    
+        <script> //Script do simulador de partidas
+            
+            var contadortime1 = 0;
+var contadortime2 = 0;
+
+
+
+function verifygame(){
+    var equipe1 = time_1.value;
+    var equipe2 = time_2.value;
+    var rodadas = Number(num_rodadas.value);
+    var verdadeiro = true;
+
+
+    if(equipe1 == '' || equipe2 == ''){
+        alert('Por favor preencha todos os campos para continuar')
+       verdadeiro = false;
+    } 
+    if(rodadas > 24 || rodadas <= 0){
+        alert('O número de rodadas necessita ser maior do que zero e menor do que 25!')
+        verdadeiro = false;
+    } 
+    if (rodadas % 2 == 0){
+        alert('O número de rodadas precisa ser ímpar!')
+        verdadeiro = false;
+    } 
+    if(Number.isNaN(rodadas)){
+        alert('O campo rodadas precisa ser númerico apenas!')
+        verdadeiro = false;
+    }
+
+    if  (verdadeiro == true){
+        jogar()
+    }
+}
+
+function jogar() {
+
+    var equipe1 = time_1.value;
+    var equipe2 = time_2.value;
+    var rodadas = Number(num_rodadas.value);
+   
+    var vencedor = 0
+    var partida = document.getElementById('partida');
+    var mostrar = document.getElementById('mostrar');
+    
+    partida.style.display = 'none';
+    mostrar.style.display = 'block';
+
+
+    for (var index = 0; index < rodadas; index++) {
+        
+        var sorteio1 = Number(Math.random() * (min = 1) * 2);
+        
+        if (sorteio1 > 1) {
+            contadortime1++ 
+            
+        } else {
+            contadortime2++;
+            
+        }
+        mostrar.innerHTML += `<h3> Round ${index+1} <b style='color:firebrick'>${equipe1}</b> ${contadortime1} X ${contadortime2} <b style='color:lightblue'>${equipe2}</b> <br> </h1>`
+        console.log(sorteio1);
+    }
+    if (contadortime1 > contadortime2) {
+        vencedor = equipe1
+    } else {
+        vencedor = equipe2
+    }
+
+    mostrar.innerHTML += `<h3 style='color: red'> Vencedor(a) <br>
+        <b style='color: green'>${vencedor}</b>!`
+}
+</script>
+
+
+<script>
+     function atualizarFeed() {
+        //aguardar();
+        fetch("/avisos/dashboard").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    
+                    var votosascent = resposta[0].numeros
+                    var votosbind = resposta[1].numeros
+                    var votosbreeze = resposta[2].numeros
+                    var votosfracture= resposta[3].numeros
+                    var votoshaven = resposta[4].numeros
+                    var votosicebox = resposta[5].numeros
+                    var votospearl = resposta[6].numeros
+                    var votossplit = resposta[7].numeros
+
+                    console.log(votosascent,votosbind,votosbreeze,votosfracture,votoshaven)
+                    // data.datasets[0].data.push(votosascent); //envia pro vetor na ultima posicao
+                    // data.datasets[0].data.push(votosbind);
+                    // data.datasets[0].data.push(votosbreeze);
+                    // data.datasets[0].data.push(votosfracture);
+                    // data.datasets[0].data.push(votoshaven);
+                    // data.datasets[0].data.push(votosicebox);
+                    // data.datasets[0].data.push(votospearl);
+                    // data.datasets[0].data.push(votossplit);
+
+                    
+                    
+                    // finalizarAguardar();
+                    criargrafico(votosascent,votosbind,votosbreeze,votosfracture,votoshaven,votosicebox,votospearl,votossplit)
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
 </script>

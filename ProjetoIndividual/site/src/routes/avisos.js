@@ -30,5 +30,8 @@ router.put("/editar/:idAviso", function (req, res) {
 router.delete("/deletar/:idAviso", function (req, res) {
     avisoController.deletar(req, res);
 });
+router.get("/dashboard", function (req, res) {
+    avisoController.dashboard(req, res);
+});
 
 module.exports = router;

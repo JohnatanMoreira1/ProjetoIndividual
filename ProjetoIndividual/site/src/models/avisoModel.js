@@ -1,20 +1,13 @@
 var database = require("../database/config");
 
-function listar() {
+function dashboard() {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-        SELECT 
-            a.id AS idAviso,
-            a.titulo,
-            a.descricao,
-            a.fk_usuario,
-            u.id AS idUsuario,
-            u.nome,
-            u.email,
-            u.senha
-        FROM aviso a
-            INNER JOIN usuario u
-                ON a.fk_usuario = u.id;
+    select count(cadastro.fkmapa) as numeros, mapas.nomemapa as mapas 
+    from mapas 
+    join cadastro 
+    on fkmapa = idmapa 
+    group by nomemapa;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -90,7 +83,7 @@ function deletar(idAviso) {
 }
 
 module.exports = {
-    listar,
+    dashboard,
     listarPorUsuario,
     pesquisarDescricao,
     publicar,

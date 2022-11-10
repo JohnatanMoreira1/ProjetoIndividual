@@ -29,31 +29,6 @@ function aguardar() {
     alert("Um momento por favor!")
 }
 
-var contadortime1 = 0;
-var contadortime2 = 0;
-
-function jogar(){
-
-var equipe1 = time_1.value; 
-equipe1 == true;
-var equipe2 = time_2.value;
-var rodadas = num_rodadas.value;
-
-
-
-
-
-
-for(var index = 0; index < rodadas; index++){
-
-
-
-}
-}
-
-//mathrandom de booleanas, time 1 igual a true e time 2 igual a false, quando cair um resultado ou outro vai decidir, 
-// quem leva o ponto, estrutura da mensagem ${equipe1} ${contadortime1} x ${contadortime2} ${equipe2}, no final mostrar EQUIPE 1 VENCEDORA OU EQUIPE 2 VENCEDORA
-// se houver empate, o vencedor será quem conquistou a primeira rodada (regra de negócio!) if(contador == contador)
 
 
 
