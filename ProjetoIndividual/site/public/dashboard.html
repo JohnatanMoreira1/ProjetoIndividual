@@ -64,7 +64,7 @@
 
 
             <div class="resultado" id="mostrar" style="display:none">
-                    
+
             </div>
 
 
@@ -102,132 +102,135 @@
 </html>
 <script> // script dashboard json
 
-function criargrafico(ascent,bind,breeze,fracture,haven,icebox,pearl,split){
-console.log(ascent,bind,breeze,fracture,haven,icebox,pearl,split)
-    
-    const labels = [ //vetor com os nomes de meses ( const é uma forma de declarar variaveis)
-        "Ascent", //o const é uma variavel constante q nunca será mudada
-        "Bind",
-        "Breeze",
-        "Fracture",
-        "Haven",
-        "Icebox",
-        "Pearl",
-        "Split"
-    ];
+    function criargrafico(ascent, bind, breeze, fracture, haven, icebox, pearl, split) {
+        console.log(ascent, bind, breeze, fracture, haven, icebox, pearl, split)
 
-    const data = { //ela é um JSON
-        labels: labels, //utilizando a varivel label para definir os nomes embaixo 
-        datasets: [{ //métricas
-            label: 'Mapas', // nome do grafico lá em cima
-            backgroundColor: 'rgb(178, 34, 34)',//cor da borda
-            borderColor: 'rgb(255, 99, 132)', // cor da borda
-            data:[], // valores que a linha vai ser atribuida)
-        }]
-    };
-    
-    const config = { //configurações do seu chart
-        type: 'bar', //tipagem do gráfico barra,linha etc
-        data: data,
-        options: {}
-    };
-    
-    data.datasets[0].data.push(ascent); //envia pro vetor na ultima posicao
-    data.datasets[0].data.push(bind);
-    data.datasets[0].data.push(breeze);
-    data.datasets[0].data.push(fracture);
-    data.datasets[0].data.push(haven);
-    data.datasets[0].data.push(icebox);
-    data.datasets[0].data.push(pearl);
-    data.datasets[0].data.push(split);
-    
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
+        const labels = [ //vetor com os nomes de meses ( const é uma forma de declarar variaveis)
+            "Ascent", //o const é uma variavel constante q nunca será mudada
+            "Bind",
+            "Breeze",
+            "Fracture",
+            "Haven",
+            "Icebox",
+            "Pearl",
+            "Split"
+        ];
+
+        const data = { //ela é um JSON
+            labels: labels, //utilizando a varivel label para definir os nomes embaixo 
+            datasets: [{ //métricas
+                label: 'Mapas', // nome do grafico lá em cima
+                backgroundColor: 'rgb(178, 34, 34)',//cor da borda
+                borderColor: 'rgb(255, 99, 132)', // cor da borda
+                data: [], // valores que a linha vai ser atribuida)
+            }]
+        };
+
+        const config = { //configurações do seu chart
+            type: 'bar', //tipagem do gráfico barra,linha etc
+            data: data,
+            options: {}
+        };
+
+        data.datasets[0].data.push(ascent); //envia pro vetor na ultima posicao
+        data.datasets[0].data.push(bind);
+        data.datasets[0].data.push(breeze);
+        data.datasets[0].data.push(fracture);
+        data.datasets[0].data.push(haven);
+        data.datasets[0].data.push(icebox);
+        data.datasets[0].data.push(pearl);
+        data.datasets[0].data.push(split);
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
         );
-    
-}
-    
 
-</script>    
-        <script> //Script do simulador de partidas
-            
-            var contadortime1 = 0;
-var contadortime2 = 0;
-
-
-
-function verifygame(){
-    var equipe1 = time_1.value;
-    var equipe2 = time_2.value;
-    var rodadas = Number(num_rodadas.value);
-    var verdadeiro = true;
-
-
-    if(equipe1 == '' || equipe2 == ''){
-        alert('Por favor preencha todos os campos para continuar')
-       verdadeiro = false;
-    } 
-    if(rodadas > 24 || rodadas <= 0){
-        alert('O número de rodadas necessita ser maior do que zero e menor do que 25!')
-        verdadeiro = false;
-    } 
-    if (rodadas % 2 == 0){
-        alert('O número de rodadas precisa ser ímpar!')
-        verdadeiro = false;
-    } 
-    if(Number.isNaN(rodadas)){
-        alert('O campo rodadas precisa ser númerico apenas!')
-        verdadeiro = false;
     }
 
-    if  (verdadeiro == true){
-        jogar()
-    }
-}
 
-function jogar() {
+</script>
+<script> //Script do simulador de partidas
 
-    var equipe1 = time_1.value;
-    var equipe2 = time_2.value;
-    var rodadas = Number(num_rodadas.value);
-   
-    var vencedor = 0
-    var partida = document.getElementById('partida');
-    var mostrar = document.getElementById('mostrar');
-    
-    partida.style.display = 'none';
-    mostrar.style.display = 'block';
+    var contadortime1 = 0;
+    var contadortime2 = 0;
 
 
-    for (var index = 0; index < rodadas; index++) {
+
+    function verifygame() {
+        var equipe1 = time_1.value;
+        var equipe2 = time_2.value;
+        var rodadas = Number(num_rodadas.value);
+        var verdadeiro = true;
+
+
+        if (equipe1.trimStart() == '' || equipe2.trimStart() == '') {
+            alert('Por favor preencha todos os campos para continuar')
+            verdadeiro = false;
+        } 
         
-        var sorteio1 = Number(Math.random() * (min = 1) * 2);
-        
-        if (sorteio1 > 1) {
-            contadortime1++ 
-            
-        } else {
-            contadortime2++;
-            
+        if (rodadas > 24 || rodadas <= 0) {
+            alert('O número de rodadas necessita ser maior do que zero e menor do que 25!')
+            verdadeiro = false;
         }
-        mostrar.innerHTML += `<h3> Round ${index+1} <b style='color:firebrick'>${equipe1}</b> ${contadortime1} X ${contadortime2} <b style='color:lightblue'>${equipe2}</b> <br> </h1>`
-        console.log(sorteio1);
-    }
-    if (contadortime1 > contadortime2) {
-        vencedor = equipe1
-    } else {
-        vencedor = equipe2
+        if (rodadas % 2 == 0) {
+            alert('O número de rodadas precisa ser ímpar!')
+            verdadeiro = false;
+        }
+        if (Number.isNaN(rodadas)) {
+            alert('O campo rodadas precisa ser númerico apenas!')
+            verdadeiro = false;
+        }
+
+        if (verdadeiro == true) {
+            jogar()
+        }
     }
 
-    mostrar.innerHTML += `<h3 style='color: red'> Vencedor(a) <br>
+    function jogar() {
+
+        var equipe1 = time_1.value;
+        var equipe2 = time_2.value;
+        var rodadas = Number(num_rodadas.value);
+
+        var vencedor = 0
+        var partida = document.getElementById('partida');
+        var mostrar = document.getElementById('mostrar');
+
+        partida.style.display = 'none';
+        mostrar.style.display = 'block';
+
+
+        for (var index = 0; index < rodadas; index++) {
+
+            var sorteio1 = Number(Math.random() * (min = 1) * 2);
+
+            if (sorteio1 > 1) {
+                contadortime1++
+
+            } else {
+                contadortime2++;
+
+            }
+            mostrar.innerHTML += `<h3> Round ${index + 1} <b style='color:firebrick'>${equipe1}</b> ${contadortime1} X ${contadortime2} <b style='color:lightblue'>${equipe2}</b> <br> </h1>`
+            console.log(sorteio1);
+        }
+        if (contadortime1 > contadortime2) {
+            vencedor = equipe1
+        } else {
+            vencedor = equipe2
+        }
+
+        mostrar.innerHTML += `<h3 style='color: red'> Vencedor(a) <br>
         <b style='color: green'>${vencedor}</b>!`
-}
+    }
 </script>
 
 
 <script>
-     function atualizarFeed() {
+    var fkmapa = sessionStorage.FKMAPA
+    function atualizarFeed() {
+        
         //aguardar();
         fetch("/avisos/dashboard").then(function (resposta) {
             if (resposta.ok) {
@@ -237,30 +240,23 @@ function jogar() {
 
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
-                    
+
                     var votosascent = resposta[0].numeros
                     var votosbind = resposta[1].numeros
                     var votosbreeze = resposta[2].numeros
-                    var votosfracture= resposta[3].numeros
+                    var votosfracture = resposta[3].numeros
                     var votoshaven = resposta[4].numeros
                     var votosicebox = resposta[5].numeros
                     var votospearl = resposta[6].numeros
                     var votossplit = resposta[7].numeros
 
-                    console.log(votosascent,votosbind,votosbreeze,votosfracture,votoshaven)
+                    console.log(votosascent, votosbind, votosbreeze, votosfracture, votoshaven)
                     // data.datasets[0].data.push(votosascent); //envia pro vetor na ultima posicao
-                    // data.datasets[0].data.push(votosbind);
-                    // data.datasets[0].data.push(votosbreeze);
-                    // data.datasets[0].data.push(votosfracture);
-                    // data.datasets[0].data.push(votoshaven);
-                    // data.datasets[0].data.push(votosicebox);
-                    // data.datasets[0].data.push(votospearl);
-                    // data.datasets[0].data.push(votossplit);
 
-                    
-                    
+
+
                     // finalizarAguardar();
-                    criargrafico(votosascent,votosbind,votosbreeze,votosfracture,votoshaven,votosicebox,votospearl,votossplit)
+                    criargrafico(votosascent, votosbind, votosbreeze, votosfracture, votoshaven, votosicebox, votospearl, votossplit)
                 });
             } else {
                 throw ('Houve um erro na API!');
@@ -269,5 +265,58 @@ function jogar() {
             console.error(resposta);
             // finalizarAguardar();
         });
+        
+        fetch("/medidas/procurar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkmapaServer: fkmapa
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                // console.log(resposta);
+
+                resposta.json().then(json => {
+                    // console.log(json);
+                    console.log(`${JSON.stringify(json)}`);
+                    b_fkmapa.innerHTML=`${json[0].nomemapa}`
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+
+        fetch("/medidas/setuser")
+            .then(function (resposta){
+                if (resposta.ok) {
+                resposta.json().then(function (respostinhas){
+                    console.log(respostinhas[0])
+                    b_idcadastro.innerHTML=`${respostinhas[0].cadastrados}`
+                })}else{
+                    throw("erro na api")
+                }
+            }) .catch(function (resposta) {
+                console.log({resposta});
+            });
+
+            return false;
     }
+
+
+
+
+
 </script>
