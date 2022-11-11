@@ -1,20 +1,21 @@
 @font-face {
-  font-family: 'Valorant';
-  src: url('Valorant.ttf') format('truetype');
+    font-family: 'Valorant';
+    src: url('Valorant.ttf') format('truetype');
 }
-.banners{
+
+.banners {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.banner{
+.banner {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.navbar{
+.navbar {
     display: flex;
     width: 700px;
     justify-content: space-around;
@@ -24,21 +25,21 @@
     margin-left: 100px;
 }
 
-.containerform{
+.containerform {
 
-height: 500px;
+    height: 500px;
 }
 
 
-.header .container{
+.header .container {
     margin: auto;
     width: 80%;
     display: flex;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
 
-.navbar{
+.navbar {
     display: flex;
     width: 700px;
     justify-content: space-around;
@@ -49,11 +50,11 @@ height: 500px;
 }
 
 
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
-    }
+}
 
 
 
@@ -70,81 +71,77 @@ height: 500px;
     justify-content: center;
     color: red;
     border: 2px solid red;
-  
+
 }
 
 .caixa_formulario h1 {
-font-size: 30px;
+    font-size: 30px;
 }
 
-.formulario{
-display: flex;
-flex-direction: column;
-width: 200px; 
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
 }
 
-.formulario input{
-padding: 10px 15px;
-text-align: center;
-border-radius: 4px;
-margin-bottom: 10px;
-background-color: rgba(0, 0, 0, 0.7);
-border-left: 2px solid red;
-border-top: 2px solid red;
-color: white;
+.formulario input {
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-left: 2px solid red;
+    border-top: 2px solid red;
+    color: white;
 
 }
 
- .formulario button{
-margin-top: 20px;
-color: white;
-background-color: red;
-border-radius: 4px;
-border: none;
-padding: 10px 15px;
-width: 150px;
-align-self: center;
-font-size: 20px;
-font-family: "Valorant";
-box-shadow: 3px 3px 3px black;
-transition: 0.2s;
+.formulario button {
+    margin-top: 20px;
+    color: white;
+    background-color: red;
+    border-radius: 4px;
+    border: none;
+    padding: 10px 15px;
+    width: 150px;
+    align-self: center;
+    font-size: 20px;
+    font-family: "Valorant";
+    box-shadow: 3px 3px 3px black;
+    transition: 0.2s;
 }
+
 .formulario button:hover {
     background-color: white;
     box-shadow: 3px 3px 3px black;
     color: red;
-    }
+}
 
-a{
+a {
     text-decoration: none;
     color: red;
 }
 
-.formulario span{
-font-family: "Valorant";
+.formulario span {
+    font-family: "Valorant";
 
 }
 
 
-
-.footer{
-margin-top: 140px;
-display: flex;
-width: 100%;
-height: 100px;
-background-color: black;
+.footer {
+    margin-top: 140px;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: black;
 }
 
-.dentrofooter{
-display: flex;
-color: red;
-align-items: center;
-justify-content: center;
-width: 100%;
-} 
-
-
-
-
-
-
+.dentrofooter {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: large;
+    font-family: 'Valorant';
+}

@@ -21,10 +21,12 @@
 <body class="body" onload="atualizarFeed()">
     <div class="header">
         <div class="container">
-            <h1 class="txtshow">Valorant</h1>
+            <h1 class="txtshow"><a style="color: white; text-decoration: none;;" href="INDEXLogado.html">VALORANT</a>
+            </h1>
             <ul class="navbar">
-                <li><a href="INDEX.html">Home</a></li>
-                <li><a href="Mapas.html">Mapas</a></li>
+                <li><a href="INDEXLogado.html">Home</a></li>
+                <li><a href="MapasLogado.html">Mapas</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
                 <li> <b class="txtshow">Bem vindo (a)</b><b id="b_usuario"></b></a></li>
                 <li class="now"><a href="INDEX.html">Sair</a></li>
             </ul>
@@ -53,7 +55,7 @@
                 <span class="txtshow"> Insira a equipe 2</span>
                 <input id="time_2">
                 <span class="txtshow">quantidade de rodadas</span>
-                <input id="num_rodadas">
+                <input id="num_rodadas" placeholder="Entre 1 e 13">
 
                 <button onclick="verifygame()">COMEÇAR</button>
 
@@ -77,7 +79,7 @@
         <div class="containerbannerdash">
 
             <div id="mostrar">
-                <h1 class="txtshow">Seu mapa favorito: <b id="b_fkmapa"></b></h1>
+                <h1 class="txtshow">Seu mapa favorito: <br> <b id="b_fkmapa"></b></h1>
                 <img src="" alt="">
             </div>
 
@@ -133,8 +135,8 @@
         };
 
         data.datasets[0].data.push(ascent); //envia pro vetor na ultima posicao
-        data.datasets[0].data.push(bind);
-        data.datasets[0].data.push(breeze);
+        data.datasets[0].data.push(bind); // data é o data do chart. datasets é o atributo do data, o zero é a cocorrencia do vetor
+        data.datasets[0].data.push(breeze); // data.push está enviando o valor do json pro vetor data
         data.datasets[0].data.push(fracture);
         data.datasets[0].data.push(haven);
         data.datasets[0].data.push(icebox);
@@ -167,10 +169,10 @@
         if (equipe1.trimStart() == '' || equipe2.trimStart() == '') {
             alert('Por favor preencha todos os campos para continuar')
             verdadeiro = false;
-        } 
-        
-        if (rodadas > 24 || rodadas <= 0) {
-            alert('O número de rodadas necessita ser maior do que zero e menor do que 25!')
+        }
+
+        if (rodadas > 13 || rodadas <= 0) {
+            alert('O número de rodadas necessita ser maior do que zero e menor do que 14!')
             verdadeiro = false;
         }
         if (rodadas % 2 == 0) {
@@ -213,7 +215,7 @@
 
             }
             mostrar.innerHTML += `<h3> Round ${index + 1} <b style='color:firebrick'>${equipe1}</b> ${contadortime1} X ${contadortime2} <b style='color:lightblue'>${equipe2}</b> <br> </h1>`
-            console.log(sorteio1);
+
         }
         if (contadortime1 > contadortime2) {
             vencedor = equipe1
@@ -229,15 +231,15 @@
 
 <script>
     var fkmapa = sessionStorage.FKMAPA
+
     function atualizarFeed() {
-        
+
         //aguardar();
         fetch("/avisos/dashboard").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
                 }
-
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
@@ -265,7 +267,7 @@
             console.error(resposta);
             // finalizarAguardar();
         });
-        
+
         fetch("/medidas/procurar", {
             method: "POST",
             headers: {
@@ -283,7 +285,7 @@
                 resposta.json().then(json => {
                     // console.log(json);
                     console.log(`${JSON.stringify(json)}`);
-                    b_fkmapa.innerHTML=`${json[0].nomemapa}`
+                    b_fkmapa.innerHTML = `${json[0].nomemapa}`
                 });
 
             } else {
@@ -300,19 +302,20 @@
         });
 
         fetch("/medidas/setuser")
-            .then(function (resposta){
+            .then(function (resposta) {
                 if (resposta.ok) {
-                resposta.json().then(function (respostinhas){
-                    console.log(respostinhas[0])
-                    b_idcadastro.innerHTML=`${respostinhas[0].cadastrados}`
-                })}else{
-                    throw("erro na api")
+                    resposta.json().then(function (respostinhas) {
+                        console.log(respostinhas[0])
+                        b_idcadastro.innerHTML = `${respostinhas[0].cadastrados}`
+                    })
+                } else {
+                    throw ("erro na api")
                 }
-            }) .catch(function (resposta) {
-                console.log({resposta});
+            }).catch(function (resposta) {
+                console.log({ resposta });
             });
 
-            return false;
+        return false;
     }
 
 

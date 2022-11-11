@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Valorant';
     src: url('Valorant.ttf') format('truetype');
-  }
+}
 
 
 body {
@@ -13,37 +13,37 @@ body {
     background-image: url("https://media.tenor.com/ZY51pVUpfJ8AAAAd/valorant.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed ; 
-           
+    background-attachment: fixed;
+
 }
 
-.header{
-display:flex;
-}
-
-
-
-.banners{
-width: 100%;
-height: 600px;
-background-image: url("https://images8.alphacoders.com/107/1074846.jpg");
-background-repeat: no-repeat;
-background-size: cover;
-display: flex;
-justify-content: center;
+.header {
+    display: flex;
 }
 
 
 
-.container{
+.banners {
+    width: 100%;
+    height: 600px;
+    background-image: url("https://images8.alphacoders.com/107/1074846.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.container {
     margin: auto;
     width: 80%;
     display: flex;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
 
-.navbar{
+.navbar {
     display: flex;
     width: 700px;
     justify-content: space-around;
@@ -53,13 +53,13 @@ justify-content: center;
 
 }
 
-.txtshow{
+.txtshow {
 
     color: white;
     font-family: "Valorant";
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     color: red;
     font-family: "Valorant";
@@ -67,23 +67,25 @@ justify-content: center;
 }
 
 
-.footer{
+.footer {
     margin-top: 140px;
     display: flex;
     width: 100%;
     height: 100px;
     background-color: black;
-    }
-    
-    .dentrofooter{
+}
+
+.dentrofooter {
     display: flex;
-    color: red;
+    color: white;
     align-items: center;
     justify-content: center;
     width: 100%;
-    } 
+    font-family: 'Valorant';
+    font-size: large;
+}
 
-    .banners .containerbanner{
+.banners .containerbanner {
     color: white;
     /* border: 2px solid blue; */
     display: flex;
@@ -92,40 +94,44 @@ justify-content: center;
     align-items: center;
     font-size: x-large;
     font-weight: bolder;
-    }
+}
 
-    .banners .containerbanner h1{
-        margin-top: 0%;
-    }
+.banners .containerbanner h1 {
+    margin-top: 0%;
+}
 
 
 /*------------------------------------------------------------------------------------------------------INICIO DO CARROSSEL --------------------------------------------------------------------------------------------------------------------------*/
-.pai_carrossel{
+.pai_carrossel {
     height: 500px;
     width: 90%;
     /* border: 2px solid yellow; */
     display: flex;
     justify-content: center;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
-.carrossel{
+.carrossel {
     /* border: 2px solid blue; */
     height: 500px;
     width: 900px;
     border-radius: 20px;
-    overflow: hidden; /*define onde eu quero colocar o meu elemento na tela */
-                        /* move o conteudo no seu próprio eixo */
-                        /*eixo x deitado, eixo y em pé */
+    overflow: hidden;
+    /*define onde eu quero colocar o meu elemento na tela */
+    /* move o conteudo no seu próprio eixo */
+    /*eixo x deitado, eixo y em pé */
 }
 
 .navegadorcarrossel {
-    position: absolute; /* se eu colocar duas vezes eu só vou conseguir mover o meu filho dentro da div carrossel */
+    position: absolute;
+    /* se eu colocar duas vezes eu só vou conseguir mover o meu filho dentro da div carrossel */
     bottom: -720px;
     left: 50%;
-    transform: translate(-50%); /* corrigir o bug de ficar o left muito pra direita invertendo */ 
+    transform: translate(-50%);
+    /* corrigir o bug de ficar o left muito pra direita invertendo */
     display: flex;
 }
+
 .barra {
     width: 20px;
     height: 17px;
@@ -135,83 +141,126 @@ justify-content: center;
     cursor: pointer;
     transition: 0.6s;
 }
-.bar:hover{
+
+.bar:hover {
     background-color: red;
 }
-.carrossel input{
 
-display: none;
+.carrossel input {
+
+    display: none;
 
 }
-.slides{
+
+.slides {
     display: flex;
-    width: 50000%; /**/
+    width: 50000%;
+    /**/
     height: 100%;
 }
 
-.slide{
+.slide {
     width: 0.2%;
     transition: .6s;
 }
 
-.slide img{
-width: 100%;
-height: 100%;
+.slide img {
+    width: 100%;
+    height: 100%;
 }
 
-#slide1:checked ~ .s1{
-margin-left: 0;
-}#slide2:checked ~ .s1{
+#slide1:checked~.s1 {
+    margin-left: 0;
+}
+
+#slide2:checked~.s1 {
     margin-left: -0.20%;
-}#slide3:checked ~ .s1{
+}
+
+#slide3:checked~.s1 {
     margin-left: -0.40%;
-}#slide4:checked ~ .s1{
+}
+
+#slide4:checked~.s1 {
     margin-left: -0.60%;
-}#slide5:checked ~ .s1{
+}
+
+#slide5:checked~.s1 {
     margin-left: -0.80%;
-}#slide6:checked ~ .s1{
+}
+
+#slide6:checked~.s1 {
     margin-left: -1.0%;
-}#slide7:checked ~ .s1{
+}
+
+#slide7:checked~.s1 {
     margin-left: -1.2%;
-}#slide8:checked ~ .s1{
+}
+
+#slide8:checked~.s1 {
     margin-left: -1.4%;
-}#slide9:checked ~ .s1{
+}
+
+#slide9:checked~.s1 {
     margin-left: -1.6%;
-}#slide10:checked ~ .s1{
+}
+
+#slide10:checked~.s1 {
     margin-left: -1.8%;
-}#slide11:checked ~ .s1{
+}
+
+#slide11:checked~.s1 {
     margin-left: -2.0%;
-}#slide12:checked ~ .s1{
+}
+
+#slide12:checked~.s1 {
     margin-left: -2.2%;
-}#slide13:checked ~ .s1{
+}
+
+#slide13:checked~.s1 {
     margin-left: -2.4%;
-}#slide14:checked ~ .s1{
+}
+
+#slide14:checked~.s1 {
     margin-left: -2.6%;
-}#slide15:checked ~ .s1{
+}
+
+#slide15:checked~.s1 {
     margin-left: -2.8%;
-}#slide16:checked ~ .s1{
+}
+
+#slide16:checked~.s1 {
     margin-left: -3.0%;
-}#slide17:checked ~ .s1{
+}
+
+#slide17:checked~.s1 {
     margin-left: -3.2%;
-}#slide18:checked ~ .s1{
+}
+
+#slide18:checked~.s1 {
     margin-left: -3.4%;
-}#slide19:checked ~ .s1{
+}
+
+#slide19:checked~.s1 {
     margin-left: -3.6%;
-}#slide20:checked ~ .s1{
+}
+
+#slide20:checked~.s1 {
     margin-left: -3.8%;
 }
+
 /* --------------------------------------------------------------------------------------------------FIM DO CARROSSEL ------------------------------------------------------------------------------------------------------------------- */
 
 
-.AgentesValorant{
-display: flex;
-align-items: center;
-justify-content: center;
-width: 90%;
-padding-top: 100px;
-padding-left: 10px;
-/* border: 2px solid yellow; */
-margin: 0 auto;
+.AgentesValorant {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding-top: 100px;
+    padding-left: 10px;
+    /* border: 2px solid yellow; */
+    margin: 0 auto;
 }
 
 
@@ -226,14 +275,14 @@ margin: 0 auto;
     flex-direction: column;
 }
 
-.abraço{
-display:flex;
-justify-content: center;
-align-items: center;
-/* border: 2px solid pink; */
+.abraço {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid pink; */
 }
 
-.item{
+.item {
     width: 300px;
     height: 300px;
     background-color: white;
@@ -244,47 +293,43 @@ align-items: center;
     background-repeat: no-repeat;
 }
 
-.lojadiaria #sorteio{
-/* border: 2px solid red; */
-text-align: center;
+.lojadiaria #sorteio {
+    /* border: 2px solid red; */
+    text-align: center;
 }
 
-.textosorteio{
+.textosorteio {
     display: flex;
     justify-content: center;
     align-items: center;
     /* border: 2px solid yellow; */
-    padding:60px 0;
+    padding: 60px 0;
 }
 
-.lojadiaria button{
+.lojadiaria button {
 
-width: 180px;
-height: 50px;
-background-color: red;
-border-radius: 30px;
-color: white;
-font-family: "Valorant";
-align-self: center;
-margin-top: 50px;
-box-shadow: 3px 3px 3px black;
-transition: 0.2s;
+    width: 180px;
+    height: 50px;
+    background-color: red;
+    border-radius: 30px;
+    color: white;
+    font-family: "Valorant";
+    align-self: center;
+    margin-top: 50px;
+    box-shadow: 3px 3px 3px black;
+    transition: 0.2s;
 }
 
- .lojadiaria button:hover {
+.lojadiaria button:hover {
     background-color: white;
     box-shadow: 3px 3px 3px black;
     color: red;
-    }
-.containerbanner p{
+}
+
+.containerbanner p {
     text-shadow: 3px 3px 3px black;
 }
 
-.containerbanner h1{
+.containerbanner h1 {
     text-shadow: 3px 3px 3px black;
 }
-
-
-
-
-
