@@ -27,7 +27,8 @@ function cadastrar(usuario, email, senha, fkmapa) {
         INSERT INTO cadastro (usuario, email, senha, fkmapa) VALUES ('${usuario}', '${email}', '${senha}', '${fkmapa}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    return database.executar(instrucao);  // foi adicionado mais um campo "fkmapa" 
+    // pois ele está dando insert na fk do mapa que vocÊ escolheu na hora de realizar o seu cadastro
 }
 
 module.exports = {

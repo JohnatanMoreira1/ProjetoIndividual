@@ -116,7 +116,7 @@ body {
     height: 500px;
     width: 900px;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: hidden; /* Esconde os elementos atrás dele e só mostra a primeira ocorrencia */
     /*define onde eu quero colocar o meu elemento na tela */
     /* move o conteudo no seu próprio eixo */
     /*eixo x deitado, eixo y em pé */
@@ -127,7 +127,7 @@ body {
     /* se eu colocar duas vezes eu só vou conseguir mover o meu filho dentro da div carrossel */
     bottom: -720px;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%); /* Move o elemento para os lados de acordo com seus eixos x e y vertical e horizontal */
     /* corrigir o bug de ficar o left muito pra direita invertendo */
     display: flex;
 }
@@ -226,7 +226,7 @@ body {
 }
 
 #slide15:checked~.s1 {
-    margin-left: -2.8%;
+    margin-left: -2.8%; 
 }
 
 #slide16:checked~.s1 {

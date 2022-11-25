@@ -10,7 +10,7 @@ function dashboard() {
     group by nomemapa;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    return database.executar(instrucao); //select da tabela de mapa e cadastro para preencher a dashboard com os dados domesmo
 }
 
 function pesquisarDescricao(texto) {

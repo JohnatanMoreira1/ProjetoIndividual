@@ -23,8 +23,8 @@ function buscarUltimasMedidas(req, res) {
 
 function selecionar(req, res) {
     
-    var fkmapa = req.body.fkmapaServer
-    
+    var fkmapa = req.body.fkmapaServer // criacao da variavel fkmapa para fazer a requisição do server no htmml
+    // o fkmapaserver é o nome da chave do json que contem a fkmapa
     medidaModel.buscar(fkmapa).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
@@ -34,7 +34,7 @@ function selecionar(req, res) {
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage); // controller para buscar a fkmapa na tabela
     });
 }
 function setuser(req, res) {
@@ -48,7 +48,7 @@ function setuser(req, res) {
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage); // controller do setuser para buscar o total de usuarios cadastrados
     });
 }
 

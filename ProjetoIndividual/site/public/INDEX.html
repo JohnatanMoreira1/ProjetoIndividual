@@ -44,7 +44,7 @@
         <div class="carrossel">
             <div class="slides">
                 <input type="radio" name="slide" id="slide1" checked>
-                <input type="radio" name="slide" id="slide2">
+                <input type="radio" name="slide" id="slide2"> <!--Input type radio é um tipo de input que permite a selecão entre os disponiveis-->
                 <input type="radio" name="slide" id="slide3">
                 <input type="radio" name="slide" id="slide4">
                 <input type="radio" name="slide" id="slide5">
@@ -125,7 +125,7 @@
                     <img src="Assets/ImgAgent/sage.jpg" alt="Sage">
                 </div>
                 <div class="navegadorcarrossel">
-                    <label class="barra" for="slide1"></label>
+                    <label class="barra" for="slide1"></label> <!-- o for é uma atribuição da label a algum elemento de entrada por exemplo o input-->
                     <label class="barra" for="slide2"></label>
                     <label class="barra" for="slide3"></label>
                     <label class="barra" for="slide4"></label>
@@ -190,7 +190,7 @@
         var operator4 = "Assets/Lojinha/oprgx.png"
         var operator5 = "Assets/Lojinha/opsaqueadora.png"
         var sheriff1 = "Assets/Lojinha/sheriffprotocolo.png"
-        var sheriff2 = "Assets/Lojinha/sheriffsaqueador.png"
+        var sheriff2 = "Assets/Lojinha/sheriffsaqueador.png"      // variaveis de imagens da pasta assets
         var sheriff3 = "Assets/Lojinha/sheriffsingularidade.png"
         var sheriff4 = "Assets/Lojinha/sheriffion.png"
         var sheriff5 = "Assets/Lojinha/sheriffarcane.png"
@@ -203,26 +203,26 @@
 
 
         var divItem1 = document.getElementById("item1")
-        var divItem2 = document.getElementById("item2")
-        var divItem3 = document.getElementById("item3")
+        var divItem2 = document.getElementById("item2")   
+        var divItem3 = document.getElementById("item3")  // atribuição da div em uma váriavel
         var divItem4 = document.getElementById("item4")
 
 
         var armas1 = [vandal1, operator1, sheriff1, faca1, vandal5];
-        var armas2 = [vandal2, operator2, sheriff2, faca2, sheriff5];
+        var armas2 = [vandal2, operator2, sheriff2, faca2, sheriff5]; // vetor de armas para fazer o math random
         var armas3 = [vandal3, operator3, sheriff3, faca3, operator5];
         var armas4 = [vandal4, operator4, sheriff4, faca4, faca5];
 
 
-        var sorteio1 = Number(Math.random() * (min = 1) * 4).toFixed();
-        var sorteio2 = Number(Math.random() * (min = 1) * 4).toFixed();
-        var sorteio3 = Number(Math.random() * (min = 1) * 4).toFixed();
-        var sorteio4 = Number(Math.random() * (min = 1) * 4).toFixed();
+        var sorteio1 = Number(Math.random() * 4).toFixed(); // sorteio sendo feito o mathrandom
+        var sorteio2 = Number(Math.random() * 4).toFixed(); // ond atribui o min de 1 e o maximo de 5
+        var sorteio3 = Number(Math.random() * 4).toFixed();
+        var sorteio4 = Number(Math.random() * 4).toFixed();
 
 
 
-        divItem1.style.backgroundImage = `url("${armas1[sorteio1]}")`
-        divItem2.style.backgroundImage = `url("${armas2[sorteio2]}")`
+        divItem1.style.backgroundImage = `url("${armas1[sorteio1]}")` // trocando o background para a imagem sorteada no vetor entre 1 e 5
+        divItem2.style.backgroundImage = `url("${armas2[sorteio2]}")` // selecionando a arma pela posição do vetor
         divItem3.style.backgroundImage = `url("${armas3[sorteio3]}")`
         divItem4.style.backgroundImage = `url("${armas4[sorteio4]}")`
     }

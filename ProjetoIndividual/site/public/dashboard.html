@@ -106,8 +106,10 @@
 
     function criargrafico(ascent, bind, breeze, fracture, haven, icebox, pearl, split) {
         console.log(ascent, bind, breeze, fracture, haven, icebox, pearl, split)
+        //os nomes não estão puxando como votsascent exemplo, pq não necessariamente precisa ter o mesmo nome
+        //o parametro em si ja entende de acordo com a quantidade de elementos respectivos com as variaveis criadas no fetch
 
-        const labels = [ //vetor com os nomes de meses ( const é uma forma de declarar variaveis)
+        const labels = [ //vetor com os nomes dos mapas  ( const é uma forma de declarar variaveis)
             "Ascent", //o const é uma variavel constante q nunca será mudada
             "Bind",
             "Breeze",
@@ -137,8 +139,8 @@
         data.datasets[0].data.push(ascent); //envia pro vetor na ultima posicao
         data.datasets[0].data.push(bind); // data é o data do chart. datasets é o atributo do data, o zero é a cocorrencia do vetor
         data.datasets[0].data.push(breeze); // data.push está enviando o valor do json pro vetor data
-        data.datasets[0].data.push(fracture);
-        data.datasets[0].data.push(haven);
+        data.datasets[0].data.push(fracture); // esse vetor só possui um elemento json
+        data.datasets[0].data.push(haven); //cada nome desse é uma variavel votos do fetch
         data.datasets[0].data.push(icebox);
         data.datasets[0].data.push(pearl);
         data.datasets[0].data.push(split);
@@ -206,7 +208,7 @@
         for (var index = 0; index < rodadas; index++) {
 
             var sorteio1 = Number(Math.random() * (min = 1) * 2);
-
+            console.log(sorteio1)
             if (sorteio1 > 1) {
                 contadortime1++
 
@@ -223,14 +225,14 @@
             vencedor = equipe2
         }
 
-        mostrar.innerHTML += `<h3 style='color: red'> Vencedor(a) <br>
-        <b style='color: green'>${vencedor}</b>!`
+        mostrar.innerHTML += `<h3 style='color: red'; margin-inline: 10px; > Vencedor(a) <br>
+        <b style='color: green'; margin-inline: 10px; >${vencedor}</b>!`
     }
 </script>
 
 
 <script>
-    var fkmapa = sessionStorage.FKMAPA
+    var fkmapa = sessionStorage.FKMAPA // criada para armazenar o valor do session storage do fkmapa do seu login
 
     function atualizarFeed() {
 
@@ -243,7 +245,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                    var votosascent = resposta[0].numeros
+                    var votosascent = resposta[0].numeros // variavel que está atribindo os votos de acordo com o select apelidado
                     var votosbind = resposta[1].numeros
                     var votosbreeze = resposta[2].numeros
                     var votosfracture = resposta[3].numeros
@@ -259,7 +261,7 @@
 
                     // finalizarAguardar();
                     criargrafico(votosascent, votosbind, votosbreeze, votosfracture, votoshaven, votosicebox, votospearl, votossplit)
-                });
+                }); // como ela não é uma váriavel global teve que passar parametros para utilizar dentro de outra função
             } else {
                 throw ('Houve um erro na API!');
             }
@@ -274,7 +276,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                fkmapaServer: fkmapa
+                fkmapaServer: fkmapa //
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -285,7 +287,7 @@
                 resposta.json().then(json => {
                     // console.log(json);
                     console.log(`${JSON.stringify(json)}`);
-                    b_fkmapa.innerHTML = `${json[0].nomemapa}`
+                    b_fkmapa.innerHTML = `${json[0].nomemapa}` // buscando o mapa preferido do individuo e mostrando
                 });
 
             } else {
@@ -306,13 +308,13 @@
                 if (resposta.ok) {
                     resposta.json().then(function (respostinhas) {
                         console.log(respostinhas[0])
-                        b_idcadastro.innerHTML = `${respostinhas[0].cadastrados}`
+                        b_idcadastro.innerHTML = `${respostinhas[0].cadastrados}` // resposta do json transformada em HTML
                     })
                 } else {
                     throw ("erro na api")
                 }
             }).catch(function (resposta) {
-                console.log({ resposta });
+                console.log({ resposta }); //criação do fetch para buscar os usuarios cadastrados
             });
 
         return false;
