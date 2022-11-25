@@ -127,3 +127,22 @@
     color: white;
 
 }
+
+#mostrar  {
+
+justify-content: center;
+align-items: center;
+flex-direction: column;
+text-align: center;
+}
+
+
+#mostrar b{
+    text-shadow: 3px 3px 3px red;
+    color: white;
+}
+
+#myChart{
+
+    margin-top: 60px;
+}

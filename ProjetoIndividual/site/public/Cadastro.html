@@ -25,7 +25,7 @@
             </ul>
         </div>
     </div>
-
+<!--Parte da caixinha de formulário do registro-->
     <div class="banner">
         <div class="container">
             <div class="caixa_formulario">
@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-
+<!-- Fim do formulário -->
     <div class="footer">
 
         <div class="dentrofooter">
@@ -66,7 +66,7 @@
 </body>
 
 </html>
-<script>
+<script> // função de cadastro
     function cadastrar() {
         aguardar();
 
@@ -86,7 +86,7 @@
         }
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-            finalizarAguardar();
+            finalizarAguardar(); // validação se há .com e @ no email
             return false;
         }
 
@@ -113,7 +113,7 @@
 
                 alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-                setTimeout(() => {
+                setTimeout(() => { //definição de tempo para redirecionar para página de login
                     window.location = "login.html";
                 }, "2000")
 
@@ -123,7 +123,6 @@
             }
         }).catch(function (resposta) {
             // console.log(`#ERRO: ${resposta}`);
-    
         });
 
         return false;

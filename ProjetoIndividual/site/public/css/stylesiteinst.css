@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Valorant';
     src: url('Valorant.ttf') format('truetype');
-}
+} /* importar a fonte de fora para uso no site */
 
 
 body {
@@ -117,9 +117,6 @@ body {
     width: 900px;
     border-radius: 20px;
     overflow: hidden; /* Esconde os elementos atrás dele e só mostra a primeira ocorrencia */
-    /*define onde eu quero colocar o meu elemento na tela */
-    /* move o conteudo no seu próprio eixo */
-    /*eixo x deitado, eixo y em pé */
 }
 
 .navegadorcarrossel {
